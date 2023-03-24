@@ -1,0 +1,11 @@
+.over-line {
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+:root {
+  --primary-color: '#319795'
+}
