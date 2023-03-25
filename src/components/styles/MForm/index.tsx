@@ -27,7 +27,7 @@ export const MInput = ({ onChange, value, type, placeholder }: InputProps) => {
       w='lt-sm:55% lt-md:60% md:80'
       border='1 solid primary rounded-lg rounded-lg'
       outline='2 solid transparent focus:primary'
-      text='#333 lt-sm:sm sm:lg'
+      text='#333 lt-sm:base sm:lg'
       className='px-3 py-1 ease-out duration-500 bg-[#f4f5f5]'
       placeholder={placeholder}
       value={value} onChange={onChange} type={type}
