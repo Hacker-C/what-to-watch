@@ -10,7 +10,7 @@ function MediaCard({ media }: { media: Media }) {
 
   const borderStyle: CSSProperties = {
     borderColor: '#67c23a',
-    outline: '4px solid #67c23a',
+    outline: '2px solid #67c23a',
     backgroundColor: '#edfcf3'
   }
   const [style, setStyle] = useState<CSSProperties>(() => selected ? borderStyle : {})
