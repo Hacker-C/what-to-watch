@@ -1,15 +1,16 @@
 import type { FormEvent } from 'react'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { MForm } from '@/components/styles/MForm'
 import { MButton } from '@/components/styles/MButton'
 import type { Media, TV } from '@/interfaces'
 import { searchMovie, searchTV, searchTvSeasons } from '@/api'
 import { useMedias } from '@/context'
+import useLocalStorage from '@/hooks/useLocalStorage'
 
 function SearchPanel() {
   const { updateMedias } = useMedias()
-  const [keyword, setKeyword] = useState('三体')
+  const [keyword, setKeyword] = useLocalStorage('keyword', '')
 
   const cachedHandleSubmit = useCallback(handleSubmit, [keyword])
 
