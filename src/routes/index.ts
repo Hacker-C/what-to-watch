@@ -16,14 +16,14 @@ const routes: RouteType[] = [
     path: '/',
     element: Home,
     meta: {
-      title: '影视搜索'
+      title: 'Search'
     }
   },
   {
     path: '/create',
     element: Create,
     meta: {
-      title: '列表制作'
+      title: 'Create'
     }
   },
   {
