@@ -1,4 +1,5 @@
-import type { ChangeEventHandler, FormEvent } from 'react'
+import { Icon } from '@iconify/react'
+import type { ChangeEvent, FormEvent } from 'react'
 
 interface FormProps {
   children: React.ReactNode
@@ -10,7 +11,8 @@ interface InputProps {
   type: 'text'
   placeholder: string
   value?: string
-  onChange?: ChangeEventHandler<HTMLInputElement>
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  clearable?: boolean
 }
 
 export const MForm = ({ onSubmit, children }: FormProps) => {
@@ -21,17 +23,35 @@ export const MForm = ({ onSubmit, children }: FormProps) => {
   )
 }
 
-export const MInput = ({ onChange, value, type, placeholder }: InputProps) => {
+export const MInput = ({ onChange, value, type, placeholder, clearable = false }: InputProps) => {
   return (
-    <input
+    <div
+      className='inline-block relative'
       w='lt-sm:55% lt-md:60% md:80'
-      border='1 solid primary rounded-lg rounded-lg'
-      outline='2 solid transparent focus:primary'
-      text='#333 lt-sm:base sm:lg'
-      className='px-3 py-1 ease-out duration-500 bg-[#f4f5f5]'
-      placeholder={placeholder}
-      value={value} onChange={onChange} type={type}
-    />
+    >
+      <input
+        border='1 solid primary rounded-lg rounded-lg'
+        outline='2 solid transparent focus:primary'
+        text='#333 lt-sm:base sm:lg'
+        p='x-3 r-[45px] y-1'
+        className='w-[100%] ease-out duration-500 leading-3'
+        placeholder={placeholder}
+        value={value}
+        onChange={e => onChange!(e)} type={type}
+      />
+      {clearable
+        && <div
+          className='absolute top-0 right-[10px] h-[100%] flex-center cursor-pointer'
+          style={{
+            display: value ? 'flex' : 'none'
+          }}
+          onClick={() => onChange!({ currentTarget: { value: '' } } as ChangeEvent<HTMLInputElement>)}
+        >
+          <Icon icon="mdi:clear-circle-outline" color='#afafaf' height='25px' />
+        </div>
+      }
+
+    </div>
   )
 }
 

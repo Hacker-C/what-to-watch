@@ -69,14 +69,15 @@ function SearchPanel() {
     <>
       <MForm onSubmit={cachedHandleSubmit}>
         <MForm.MInput
-          type="text"
-          placeholder='请输入电影或电视名'
+          type={'text'}
+          placeholder={'请输入电影或电视名'}
           value={keyword}
           onChange={e => setKeyword(e.currentTarget.value)}
+          clearable
         />
-        <MButton htmlType='submit'>搜 索</MButton>
+        <MButton htmlType={'submit'}>搜 索</MButton>
         <Link to={'/create'}>
-          <MButton htmlType='button'>
+          <MButton htmlType={'button'}>
             生 成
           </MButton>
         </Link>
