@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react'
 import type { CSSProperties } from 'react'
 import type { Media } from '@/interfaces'
 import { formatDate } from '@/utils'
-import '@/styles/index.css'
+import '@/components/styles/index.css'
 
 interface MCardProps {
   media: Media

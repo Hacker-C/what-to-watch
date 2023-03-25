@@ -1,6 +1,6 @@
 import MediaList from '@/components/MediaList'
 import SearchPanel from '@/components/SearchPanel'
-import { Container } from '@/components/Contaniner'
+import { Container } from '@/components/styles/Contaniner'
 
 function Home() {
   return (

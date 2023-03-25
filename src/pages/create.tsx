@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MButton } from '@/components/styles'
+import { MButton } from '@/components/styles/MButton'
 import { useMedias } from '@/context'
 
 function Create() {
@@ -16,7 +16,7 @@ function Create() {
         }
       </ul>
       <Link to='/'>
-        <MButton type='button'>返回搜索</MButton>
+        <MButton htmlType='button'>返回搜索</MButton>
       </Link>
     </div>
   )

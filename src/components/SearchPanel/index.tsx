@@ -1,7 +1,8 @@
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MButton, MForm } from '@/components/styles'
+import { MForm } from '@/components/styles/MForm'
+import { MButton } from '@/components/styles/MButton'
 import type { Media, TV } from '@/interfaces'
 import { searchMovie, searchTV, searchTvSeasons } from '@/api'
 import { useMedias } from '@/context'
@@ -72,9 +73,9 @@ function SearchPanel() {
           value={keyword}
           onChange={e => setKeyword(e.currentTarget.value)}
         />
-        <MButton type='submit'>搜 索</MButton>
+        <MButton htmlType='submit'>搜 索</MButton>
         <Link to={'/create'}>
-          <MButton type='button'>
+          <MButton htmlType='button'>
             生 成
           </MButton>
         </Link>
