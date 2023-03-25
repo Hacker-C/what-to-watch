@@ -1,6 +1,6 @@
-import MediaList from '@/components/logic/MediaList'
-import SearchPanel from '@/components/logic/SearchPanel'
-import { Container } from '@/components/styles/Contaniner'
+import MediaList from '@/components/home/logic/MediaList'
+import SearchPanel from '@/components/home/logic/SearchPanel'
+import { Container } from '@/components/home/styles/Contaniner'
 
 function Home() {
   return (
