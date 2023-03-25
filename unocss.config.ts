@@ -1,10 +1,17 @@
-import { defineConfig, presetUno,presetAttributify, presetWind } from 'unocss'
+import { defineConfig, presetUno,presetAttributify, presetWind, presetWebFonts } from 'unocss'
 
 export default defineConfig({
   presets: [
     presetWind(),
     presetAttributify(),
-    presetUno()
+    presetUno(),
+    presetWebFonts({
+      provider: 'none',
+      fonts: {
+        title: ['Times'],
+        sans: ['sans-serif', 'Infer']
+      }
+    })
   ],
   theme: {
     colors: {

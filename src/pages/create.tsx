@@ -1,9 +1,12 @@
-import CreateList from '@/components/create/logic/CreateList'
+import CreateHeader from '@/components/create/logic/CreateHeader'
 
 function Create() {
   return (
     <>
-      <CreateList></CreateList>
+      <CreateHeader info={{
+        title: 'EVA',
+        author: 'Murphy Chen'
+      }}/>
     </>
   )
 }

@@ -6,7 +6,7 @@ function CreateList() {
   const { medias } = useMedias()!
   const selectedMedias = medias.filter(m => m.selected)
   return (
-    <div text='center' m='10' font='[Inter,sans-serif]'>
+    <div text='center' m='10' font='global'>
       <h1>Create</h1>
       <ul>
         {
