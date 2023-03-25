@@ -1,20 +1,16 @@
 import type { Media } from '@/interfaces'
 
-export const listReducer = (list: Media[], action: LIST_ACTION_TYPE): Media[] => {
+export const listReducer = (list: Media[], action: LIST_ACTION_TYPE) => {
   const { type, payload } = action
-  const selectFn = (m: Media) => m.id === payload!.id ? { ...m, selected: !m.selected } : m
-  return new Map()
+  const actions: Map<string, () => Media[]> = new Map()
     .set('add', () => {
       return list.some(m => m.id === payload!.id) ? list : [...list, payload]
     })
-    .set('select', () => {
-      return list.map(selectFn)
-    })
     .set('remove', () => {
-      return list.map(selectFn)
+      return list.filter(m => m.id !== payload?.id)
     })
     .set('clear', () => [])
-    .get(type)()
+  return (actions?.get(type) || (() => list))()
 }
 
 export type LIST_ACTION_TYPE =

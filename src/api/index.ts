@@ -24,14 +24,15 @@ export const searchTV = async (paramsObj: { query: string }): Promise<TV[]> => {
 export const searchTvSeasons = async (id: number, name: string, overview: string, original_name: string): Promise<Season[]> => {
   return http(`tv/${id}`).then(
     data => (data.seasons as Season[]).map(
-      (s: Season) => ({
-        ...s,
-        original_name,
-        overview: s.overview || overview,
-        media_type: 'tv',
-        first_air_date: s.air_date,
-        name: `${name?.[0] === s.name[0] ? '' : name} ${s.name}`
-
-      }) as Season
+      (s: Season) => {
+        return {
+          ...s,
+          original_name,
+          overview: s.overview || overview,
+          media_type: 'tv',
+          first_air_date: s.air_date,
+          name: `${name?.[0] === s.name[0] ? '' : name} ${s.name}`
+        } as Season
+      }
     ).sort((tv1, tv2) => (tv1?.first_air_date || '2025').localeCompare(tv2?.first_air_date || '2025')))
 }

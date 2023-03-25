@@ -1,7 +1,7 @@
 import type React from 'react'
-import Home from '@/pages/home'
+import Home from '@/pages/home-page'
 import ErrorPage from '@/pages/error-page'
-import Create from '@/pages/create'
+import CreatePage from '@/pages/create-page'
 
 export interface RouteType {
   path: string
@@ -21,7 +21,7 @@ const routes: RouteType[] = [
   },
   {
     path: '/create',
-    element: Create,
+    element: CreatePage,
     meta: {
       title: 'Create'
     }

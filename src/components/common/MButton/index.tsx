@@ -12,13 +12,12 @@ export const MButton = ({ children, onClick, htmlType = 'button' }: ButtonProps)
       type={htmlType}
       border='1 solid primary rounded-lg rounded-lg'
       outline='2 solid transparent active:primary'
-      bg='#2c7a7b hover:#2c7a7b active:#285e61'
-      text='white lt-sm:base sm:lg'
-      p='lt-sm:x-3 sm:x-5 y-1'
-      className='ml-5px ease-out duration-200'
+      text='primary lt-sm:base sm:lg'
+      p='lt-sm:x-2 sm:x-3 lg:x-3 y-1'
+      className='ml-5px ease-out duration-200 font-sans'
       onClick={onClick}
       style={{
-        backgroundColor: '#319795'
+        backgroundColor: '#fff'
       }}
     >
       { children }

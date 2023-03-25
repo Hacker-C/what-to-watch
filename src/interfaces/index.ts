@@ -16,6 +16,7 @@ export interface TV {
   poster_path: string
   original_name: string
   first_air_date: string
+  episode_count: number
 }
 
 export interface Season {
@@ -36,6 +37,7 @@ export interface Media {
   name: string
   date: string
   overview: string
+  episodeCount?: number
   type: 'tv' | 'movie'
   poster: string
   originalName?: string

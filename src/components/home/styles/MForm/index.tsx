@@ -47,7 +47,7 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
           }}
           onClick={() => onChange!({ currentTarget: { value: '' } } as ChangeEvent<HTMLInputElement>)}
         >
-          <Icon icon="mdi:clear-circle-outline" color='#afafaf' height='25px' />
+          <Icon icon="mdi:clear-circle-outline" className='gray-400' color='#7bc2c0' height='25px' />
         </div>
       }
 

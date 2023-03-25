@@ -2,9 +2,10 @@ import type { CSSProperties } from 'react'
 import { useEffect, useState } from 'react'
 import MCard from '@/components/home/styles/MCard'
 import type { Media } from '@/interfaces'
-import { useMedias } from '@/context'
+import { useList, useMedias } from '@/context'
 
 function MediaCard({ media }: { media: Media }) {
+  const { updateList } = useList()
   const { updateMedias } = useMedias()
   const { selected } = media
 
@@ -20,13 +21,21 @@ function MediaCard({ media }: { media: Media }) {
   }, [selected])
   const addToList = () => {
     if (!selected) {
+      updateList({
+        type: 'add',
+        payload: media
+      })
       updateMedias({
-        type: 'remove',
+        type: 'select',
         payload: media
       })
     } else {
-      updateMedias({
+      updateList({
         type: 'remove',
+        payload: media
+      })
+      updateMedias({
+        type: 'deselected',
         payload: media
       })
     }
