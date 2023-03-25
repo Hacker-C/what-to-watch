@@ -1,4 +1,4 @@
-import MediaCard from '@/components/MediaCard'
+import MediaCard from '@/components/logic/MediaCard'
 import { useMedias } from '@/context'
 
 function MediaList() {
