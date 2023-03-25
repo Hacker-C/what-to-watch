@@ -5,7 +5,7 @@ import type { Media } from '@/interfaces'
 import { useMedias } from '@/context'
 
 function MediaCard({ media }: { media: Media }) {
-  const { update } = useMedias()!
+  const { updateMedias } = useMedias()
   const { selected } = media
 
   const borderStyle: CSSProperties = {
@@ -20,12 +20,12 @@ function MediaCard({ media }: { media: Media }) {
   }, [selected])
   const addToList = () => {
     if (!selected) {
-      update({
+      updateMedias({
         type: 'remove',
         payload: media
       })
     } else {
-      update({
+      updateMedias({
         type: 'remove',
         payload: media
       })

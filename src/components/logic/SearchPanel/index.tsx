@@ -8,7 +8,7 @@ import { searchMovie, searchTV, searchTvSeasons } from '@/api'
 import { useMedias } from '@/context'
 
 function SearchPanel() {
-  const { update } = useMedias()!
+  const { updateMedias } = useMedias()
   const [keyword, setKeyword] = useState('三体')
 
   const cachedHandleSubmit = useCallback(handleSubmit, [keyword])
@@ -17,7 +17,7 @@ function SearchPanel() {
     e.preventDefault()
 
     // 清空结果
-    update({
+    updateMedias({
       type: 'clear'
     })
 
@@ -57,7 +57,7 @@ function SearchPanel() {
       media.poster = m.poster_path
       media.id = m.id
       media.overview = m?.overview?.trim()
-      update({
+      updateMedias({
         type: 'add',
         payload: media
       })
