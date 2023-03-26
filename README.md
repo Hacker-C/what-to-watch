@@ -31,5 +31,4 @@ https://app.netlify.com
 
 ## Demo
 
-
-<img src='./.github/img/jojo.jpg' />
+<img src='./.github/img/jojo.jpg' width='300'/>
