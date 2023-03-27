@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import MCard from '@/components/home/styles/MCard'
 import type { Media } from '@/interfaces'
 import { useList, useMedias } from '@/context'
+import { getBase64Image } from '@/utils'
 
 function MediaCard({ media }: { media: Media }) {
   const { updateList } = useList()
@@ -19,11 +20,24 @@ function MediaCard({ media }: { media: Media }) {
   useEffect(() => {
     setStyle(selected ? borderStyle : {})
   }, [selected])
-  const addToList = () => {
+  const addToList = async () => {
     if (!selected) {
+      const resolveImage: Promise<string> = new Promise((resolve, reject) => {
+        const image = new Image()
+        image.crossOrigin = 'anonymous'
+        image.addEventListener('load', () => {
+          resolve(getBase64Image(image))
+        })
+        image.addEventListener('error', (e) => {
+          reject(e)
+        })
+        image.src = `${media.poster}?v=${Math.random()}`
+      })
+      // TIP 每添加一个到制作列表中，就转化为 base64 格式，解决卡顿，性能优化
+      const posterBase64 = await resolveImage
       updateList({
         type: 'add',
-        payload: media
+        payload: { ...media, poster: posterBase64 }
       })
       updateMedias({
         type: 'select',
@@ -44,3 +58,4 @@ function MediaCard({ media }: { media: Media }) {
 }
 
 export default MediaCard
+

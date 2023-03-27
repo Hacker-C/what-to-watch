@@ -7,7 +7,7 @@ import type { Media, TV } from '@/interfaces'
 import { searchMovie, searchTV, searchTvSeasons } from '@/api'
 import { useMedias } from '@/context'
 import useLocalStorage from '@/hooks/useLocalStorage'
-import { getBase64Image, getImage } from '@/utils'
+import { getImage } from '@/utils'
 
 function SearchPanel() {
   const { updateMedias } = useMedias()
@@ -59,30 +59,11 @@ function SearchPanel() {
       media.selected = false
       media.id = m.id
       media.overview = m?.overview?.trim()
-      media.poster = 'https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg'
-
-      // !#####################
-      try {
-        const newPoster = await new Promise((resolve, reject) => {
-          const image = new Image()
-          image.crossOrigin = 'anonymous'
-          image.addEventListener('load', () => {
-            resolve(getBase64Image(image))
-          })
-          image.addEventListener('error', (e) => {
-            reject(e)
-          })
-          image.src = `${getImage(m.poster_path)}?v=${Math.random()}` // 此处自己替换本地图片的地址
-        })
-        media.poster = newPoster as string
-        // !#####################
-        updateMedias({
-          type: 'add',
-          payload: media
-        })
-      } catch (error) {
-        console.warn('errrrrrrrrrr')
-      }
+      media.poster = getImage(m.poster_path)
+      updateMedias({
+        type: 'add',
+        payload: media
+      })
     })
   }
 
