@@ -15,7 +15,7 @@ const CreateCard = ({ media }: { media: Media }) => {
         <div m='x-4' border='2 gray-400'>
           <img src={poster} alt={name} width='90px' />
         </div>
-        <div font='sans' text='base gray-700' p='t-2'>
+        <div font='sans' text='sm gray-700' p='t-2'>
           {date && <div>{date.slice(0, 4)}年</div>}
           {<span>{episodeCount || '1'}集</span>}
           {date && <span> / {formatDate(date)}</span>}
