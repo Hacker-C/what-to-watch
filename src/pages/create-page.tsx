@@ -2,9 +2,7 @@ import Create from '@/components/create'
 
 function CreatePage() {
   return (
-    <>
-      <Create></Create>
-    </>
+    <Create></Create>
   )
 }
 

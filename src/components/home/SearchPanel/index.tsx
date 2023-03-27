@@ -72,7 +72,7 @@ function SearchPanel() {
       <MForm onSubmit={cachedHandleSubmit}>
         <MForm.MInput
           type={'text'}
-          placeholder={'请输入电影或电视名'}
+          placeholder={'搜索电影和电视'}
           value={keyword}
           onChange={e => setKeyword(e.currentTarget.value)}
           clearable

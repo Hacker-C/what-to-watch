@@ -3,6 +3,7 @@ import html2canvas from 'html2canvas'
 import type { LegacyRef } from 'react'
 import { useRef } from 'react'
 import CreateList from './CreateList'
+import MTip from '@/components/common/MTip'
 import CreateHeader from '@/components/create/CreateHeader'
 import { MButton } from '@/components/common/MButton'
 import { useList, useMedias } from '@/context'
@@ -47,8 +48,10 @@ function Create() {
       </div>
       {
         isContentEditableSupported()
-          ? <p text='gray-400 base center'>Tip: 点击相应文字即可修改文案</p>
-          : <p text='red-500 base center'>Warn: 该浏览器不支持修改文案，请换浏览器再试！</p>
+          ? <div text='center'>
+              <MTip>点击相应文字即可修改文案</MTip>
+            </div>
+          : <MTip type='danger'>该浏览器不支持修改文案，请换浏览器再试！</MTip>
       }
       {
         list.length === 0

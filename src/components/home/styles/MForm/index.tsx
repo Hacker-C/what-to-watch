@@ -33,7 +33,7 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
         border='1 solid primary rounded-lg rounded-lg'
         outline='2 solid transparent focus:primary'
         text='#333 lt-sm:base sm:lg'
-        p='x-3 r-[45px] y-1'
+        p='l-2 r-[30px] y-1'
         className='w-[100%] ease-out duration-500 leading-3'
         placeholder={placeholder}
         value={value}
@@ -41,7 +41,7 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
       />
       {clearable
         && <div
-          className='absolute top-0 right-[10px] h-[100%] flex-center cursor-pointer'
+          className='absolute top-0 right-[6px] h-[100%] flex-center cursor-pointer'
           style={{
             display: value ? 'flex' : 'none'
           }}

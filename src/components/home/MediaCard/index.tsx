@@ -34,6 +34,7 @@ function MediaCard({ media }: { media: Media }) {
         image.src = `${media.poster}?v=${Math.random()}`
       })
       // TIP 每添加一个到制作列表中，就转化为 base64 格式，解决卡顿，性能优化
+      // TODO 点击后前端响应稍有延迟，用户体验不好，待解决
       const posterBase64 = await resolveImage
       updateList({
         type: 'add',
