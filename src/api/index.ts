@@ -10,8 +10,9 @@ const func = <T extends { name?: string; title?: string }>(results: T[], keyword
 
 // search movie only
 export const searchMovie = async (paramsObj: { query: string }): Promise<Movie[]> => {
+  // 暂时过滤掉没有海报（poster）的电影
   return http('search/movie', paramsObj)
-    .then(data => func<Movie>(data.results, paramsObj.query))
+    .then(data => func<Movie>(data.results, paramsObj.query).filter(m => m.poster_path !== null))
 }
 
 // search tv only
@@ -22,8 +23,9 @@ export const searchTV = async (paramsObj: { query: string }): Promise<TV[]> => {
 
 // search seasons of the tv by id
 export const searchTvSeasons = async (id: number, name: string, overview: string, original_name: string): Promise<Season[]> => {
+  // 暂时过滤掉没有海报（poster）的电视
   return http(`tv/${id}`).then(
-    data => (data.seasons as Season[]).map(
+    data => (data.seasons as Season[]).filter(s => s.poster_path !== null).map(
       (s: Season) => {
         return {
           ...s,
