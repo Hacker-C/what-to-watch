@@ -1,19 +1,9 @@
-import MediaList from '@/components/home/MediaList'
-import SearchPanel from '@/components/home/SearchPanel'
-import { Container } from '@/components/home/styles/Contaniner'
+import Home from '@/components/home'
 
-function Home() {
+function HomePage() {
   return (
-    <Container>
-      <Container.Header>
-        What to watch today
-      </Container.Header>
-      <div className=' sticky top-1 z-100'>
-        <SearchPanel></SearchPanel>
-      </div>
-      <MediaList></MediaList>
-    </Container>
+    <Home></Home>
   )
 }
 
-export default Home
+export default HomePage
