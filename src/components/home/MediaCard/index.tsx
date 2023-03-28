@@ -36,7 +36,7 @@ function MediaCard({ media }: { media: Media }) {
       // TIP: UI 更新提前，避免格式转换延迟 UI 更新
       updateMedias({
         type: 'select',
-        payload: media
+        payload: media.id
       })
       // TIP 每添加一个到制作列表中，就转化为 base64 格式，解决卡顿，性能优化
       const posterBase64 = await resolveImage
@@ -47,11 +47,11 @@ function MediaCard({ media }: { media: Media }) {
     } else {
       updateList({
         type: 'remove',
-        payload: media
+        payload: media.id
       })
       updateMedias({
         type: 'deselected',
-        payload: media
+        payload: media.id
       })
     }
   }

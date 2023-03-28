@@ -22,7 +22,9 @@ function Create() {
   }
   const listRef = useRef<HTMLDivElement>()
   const download = () => {
-    html2canvas(listRef.current as HTMLDivElement).then((canvas) => {
+    html2canvas(listRef.current as HTMLDivElement, {
+      ignoreElements: element => element.id === 'no-convert'
+    }).then((canvas) => {
       const image = canvas.toDataURL()
       const aDownloadLink = document.createElement('a')
       aDownloadLink.download = 'canvas_image.png'
