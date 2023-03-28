@@ -9,14 +9,23 @@ const baseParamsObj = {
   include_adult: 'false'
 }
 
+const TIME_OUT = 5000
+
 export const http = async (endpoint: string, paramsObj: Record<string, string> = {}) => {
   const params = new URLSearchParams({ ...baseParamsObj, ...paramsObj }).toString()
-  return fetch(`${baseUrl}/${endpoint}?${params}`)
-    .then(async (resp) => {
-      if (resp.ok) {
-        return await resp.json()
-      } else {
-        return Promise.reject(Error('Error happned'))
-      }
-    })
+  return Promise.race([
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(new Error('Timeout! Please check your network or proxy'))
+      }, TIME_OUT)
+    }),
+    fetch(`${baseUrl}/${endpoint}?${params}`)
+      .then(async (resp) => {
+        if (resp.ok) {
+          return await resp.json()
+        } else {
+          return Promise.reject(Error('Error happned'))
+        }
+      })
+  ])
 }
