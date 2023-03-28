@@ -14,7 +14,7 @@ export const Container = ({ children }: { children: ReactNode }) => {
 export const Header = ({ children }: { children: ReactNode }) => {
   return (
     <h1
-      text='primary lt-sm:2xl sm:3xl lt-sm:center sm:left'
+      text='primary lt-sm:2xl sm:3xl center'
       className='font-bold font-title my-5'
     >
       {children}

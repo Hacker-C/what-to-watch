@@ -22,7 +22,7 @@ const tipMap = (type: RemoveOptional<MTipProps>['type']) => {
 function MTip({ children, type = 'info' }: MTipProps) {
   const { color, icon } = tipMap(type!)
   return (
-    <div className='text-base' style={{ color }}>
+    <div className='text-base font-normal' style={{ color }}>
       <Icon icon={icon} width='18' className='inline mx-1 mb-0.6'></Icon>
       <span>{children}</span>
     </div>

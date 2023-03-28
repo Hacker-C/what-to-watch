@@ -17,7 +17,7 @@ interface InputProps {
 
 export const MForm = ({ onSubmit, children }: FormProps) => {
   return (
-    <form onSubmit={onSubmit} className='lt-sm:text-center sm:text-left'>
+    <form onSubmit={onSubmit} className='text-center'>
       {children}
     </form>
   )
@@ -27,7 +27,7 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
   return (
     <div
       className='inline-block relative'
-      w='lt-sm:55% lt-md:60% md:80'
+      w='lt-sm:55% 400px'
     >
       <input
         border='1 solid primary rounded-lg rounded-lg'
