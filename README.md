@@ -8,8 +8,8 @@
 
 ## Tip
 
-- 接口数据来自 TMDB，需要科学上网，较长时间没有数据，建议切换代理
-- 点击搜索结果即可将电影或电视加入到列表中。注：由于 [html2canvas](https://github.com/niklasvh/html2canvas#how-does-it-work) 的图片跨域限制，需先转封面图片为 base64 才能下载完整卡片，因此选中后稍有延迟
+- 接口数据来自 TMDB，需要科学上网
+- 点击搜索结果即可将电影或电视加入到列表中
 
 ## Serve
 
