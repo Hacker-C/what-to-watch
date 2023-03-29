@@ -1,8 +1,8 @@
-import { Icon } from '@iconify/react'
 import type { CSSProperties } from 'react'
 import type { Media } from '@/interfaces'
 import { formatDate } from '@/utils'
 import './index.css'
+import MImage from '@/components/common/MImage'
 
 interface MCardProps {
   media: Media
@@ -25,21 +25,9 @@ function MCard({ media, onClick, style }: MCardProps) {
         <div
           w='xl:140px lg:130px 120px'
           border='1 solid primary'
-          className='bg-[#dbdbdb] relative flex-center'
+          className='relative flex-center'
         >
-          {
-            poster
-              ? <img
-                src={poster}
-                alt={name}
-                className='w-100% h-100%'
-              />
-              : <Icon
-                icon="material-symbols:live-tv-outline"
-                width='70'
-                className='text-[#b5b5b5]'
-              />
-          }
+        <MImage src={poster} alt={name} />
         </div>
         <div className='h-100% px-5 py-2 flex-1 overflow-hidden'>
           <div className='flex items-center flex-wrap relative'>

@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react'
 import type { Media } from '@/interfaces'
 import { formatDate } from '@/utils'
 import { useList, useMedias } from '@/context'
+import MImage from '@/components/common/MImage'
 
 const CreateCard = ({ media }: { media: Media }) => {
   const { id, name, poster, originalName, date, episodeCount } = media
@@ -33,7 +34,7 @@ const CreateCard = ({ media }: { media: Media }) => {
       </header>
       <div className='flex py-4'>
         <div m='x-4' border='1 gray-500'>
-          <img src={poster} alt={name} width='90px' />
+          <MImage src={poster} alt={name} width='90px' />
         </div>
         <div font='sans' text='sm gray-700' p='t-2'>
           {date && <div>{date.slice(0, 4)}年</div>}
