@@ -1,8 +1,8 @@
-import Loading from './styles/Loading'
+import Loading from '../common/Loading'
 import MTip from '@/components/common/MTip'
 import MediaList from '@/components/home/MediaList'
 import SearchPanel from '@/components/home/SearchPanel'
-import { Container } from '@/components/home/styles/Contaniner'
+import { Container } from '@/components/home/styled-components/Contaniner'
 import { useLoad } from '@/context'
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
   return (
     <Container>
       <Container.Header>
-        What to watch today ...?
+        What to Watch today
         <div text='center' m='y-3'>
           <MTip type='info'>制作影视推荐清单，点击即可添加</MTip>
         </div>

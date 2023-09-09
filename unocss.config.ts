@@ -15,7 +15,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      primary: '#319795'
+      primary: '#409eff'
     }
   },
   shortcuts: {

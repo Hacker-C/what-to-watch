@@ -5,7 +5,7 @@ function Loading() {
     <Icon
       icon={'eos-icons:bubble-loading'}
       width='30'
-      className='text-gray-500 h-center my-4'
+      className='text-primary h-center my-4'
     />
   )
 }

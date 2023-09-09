@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { useEffect, useState } from 'react'
-import MCard from '@/components/home/styles/MCard'
+import MCard from '@/components/home/styled-components/MCard'
 import type { Media } from '@/interfaces'
 import { useList, useMedias } from '@/context'
 import { getBase64Image } from '@/utils'

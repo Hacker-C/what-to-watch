@@ -30,8 +30,8 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
       w='lt-sm:55% 400px'
     >
       <input
-        border='1 solid primary rounded-lg rounded-lg'
-        outline='2 solid transparent focus:primary'
+        border='1.5 solid primary rounded-lg rounded-lg'
+        outline='1.5 solid transparent focus:primary'
         text='#333 lt-sm:base sm:lg'
         p='l-2 r-[30px] y-1'
         className='w-[100%] ease-out duration-500 leading-3'
@@ -47,7 +47,7 @@ export const MInput = ({ onChange, value, type, placeholder, clearable = false }
           }}
           onClick={() => onChange!({ currentTarget: { value: '' } } as ChangeEvent<HTMLInputElement>)}
         >
-          <Icon icon="mdi:clear-circle-outline" className='gray-400' color='#7bc2c0' height='25px' />
+          <Icon icon="mdi:clear-circle-outline" className='text-primary' height='25px'/>
         </div>
       }
 

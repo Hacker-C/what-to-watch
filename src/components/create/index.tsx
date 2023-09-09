@@ -6,12 +6,13 @@ import CreateList from './CreateList'
 import MTip from '@/components/common/MTip'
 import CreateHeader from '@/components/create/CreateHeader'
 import { MButton } from '@/components/common/MButton'
-import { useList, useMedias } from '@/context'
+import { useCreateInfo, useList, useMedias } from '@/context'
 import { isContentEditableSupported } from '@/utils'
 
 function Create() {
   const { list, updateList } = useList()
   const { updateMedias } = useMedias()
+  const { info, update } = useCreateInfo()
   const clearList = () => {
     updateList({
       type: 'clear'
@@ -20,6 +21,14 @@ function Create() {
       type: 'deselected-all'
     })
   }
+
+  if (list.length === 0 && info.title) {
+    update({ type: 'reset-info' })
+  }
+
+  const originTitle = list?.at(0)?.name.trim()
+  const title = (originTitle?.match(/第.*季/) ? originTitle.replace(/第.*季/, '').trim() : originTitle) ?? ''
+
   const listRef = useRef<HTMLDivElement>()
   const download = () => {
     html2canvas(listRef.current as HTMLDivElement, {
@@ -34,7 +43,7 @@ function Create() {
   }
 
   return (
-    <div className='w-[320px] h-center p-[1px]'>
+    <div className='w-[320px] h-center p-[1px] mt8.5'>
       <h1
         text='primary lt-sm:2xl sm:3xl center'
         className='font-bold font-title my-5'
@@ -51,7 +60,7 @@ function Create() {
       {
         isContentEditableSupported()
           ? <div text='center'>
-              <MTip>点击相应文字即可修改文案</MTip>
+              <MTip type='info'>点击相应文字即可修改文案</MTip>
             </div>
           : <MTip type='danger'>该浏览器不支持修改文案，请换浏览器再试！</MTip>
       }
@@ -65,7 +74,7 @@ function Create() {
             请先选择影视
           </p>
           : <div p='t-4 x-2' ref={listRef as LegacyRef<HTMLDivElement>}>
-            <CreateHeader />
+            <CreateHeader title={title}/>
             <CreateList />
             <div className='text-[15px] font-sans text-gray-600 pb-8 pl-2'>
               <p>制作你的影视推荐清单</p>

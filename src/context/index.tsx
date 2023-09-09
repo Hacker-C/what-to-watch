@@ -4,7 +4,9 @@ import type { MEDIAS_ACTION_TYPE } from './mediasReducer'
 import { mediasReducer } from './mediasReducer'
 import type { LIST_ACTION_TYPE } from './listReducer'
 import { listReducer } from './listReducer'
-import type { Media } from '@/interfaces'
+import type { INFO_ACTION_TYPE } from './createInfoReducer'
+import { createInfoReducer } from './createInfoReducer'
+import type { ICreateInfo, Media } from '@/interfaces'
 
 // search result of home page medias
 interface MediasState {
@@ -34,16 +36,28 @@ export const LoadContext = createContext<LoadState>(null as unknown as LoadState
 export const useLoad = () => useContext(LoadContext)
 LoadContext.displayName = 'LoadContext'
 
+// info of the movie or tv you want to put in list
+interface ICreateInfoState {
+  info: ICreateInfo
+  update: Dispatch<INFO_ACTION_TYPE>
+}
+export const CreateInfoContext = createContext<ICreateInfoState>(null as unknown as ICreateInfoState)
+export const useCreateInfo = () => useContext(CreateInfoContext)
+CreateInfoContext.displayName = 'CreateInfoContext'
+
 export const AppProvirder = ({ children }: { children: ReactNode }) => {
   const [medias, updateMedias] = useReducer(mediasReducer, [])
   const [list, updateList] = useReducer(listReducer, [])
   const [loadStatus, setLoadStatus] = useState<Status>('ready')
+  const [info, update] = useReducer(createInfoReducer, {} as ICreateInfo)
   const updateLoadStatus = (status: Status) => setLoadStatus(status)
   return (
     <MediasContext.Provider value={{ medias, updateMedias }}>
       <ListContext.Provider value={{ list, updateList }}>
         <LoadContext.Provider value={{ loadStatus, updateLoadStatus }}>
-          {children}
+          <CreateInfoContext.Provider value={{ info, update }}>
+            {children}
+          </CreateInfoContext.Provider>
         </LoadContext.Provider>
       </ListContext.Provider>
     </MediasContext.Provider>

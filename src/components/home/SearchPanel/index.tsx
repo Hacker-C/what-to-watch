@@ -1,7 +1,7 @@
 import type { FormEvent } from 'react'
 import { useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { MForm } from '@/components/home/styles/MForm'
+import { MForm } from '@/components/home/styled-components/MForm'
 import { MButton } from '@/components/common/MButton'
 import type { Media, TV } from '@/interfaces'
 import { searchMovie, searchTV, searchTvSeasons } from '@/api'

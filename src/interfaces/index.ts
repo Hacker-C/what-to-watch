@@ -43,3 +43,9 @@ export interface Media {
   originalName?: string
   selected: boolean
 }
+
+export interface ICreateInfo {
+  title: string
+  desc: string
+  author: string
+}

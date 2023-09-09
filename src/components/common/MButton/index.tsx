@@ -10,8 +10,8 @@ export const MButton = ({ children, onClick, htmlType = 'button' }: ButtonProps)
   return (
     <button
       type={htmlType}
-      border='1 solid primary rounded-lg rounded-lg'
-      outline='2 solid transparent active:primary'
+      border='1.5 solid primary rounded-lg rounded-lg'
+      outline='solid transparent hover:primary hover:1.5'
       text='primary lt-sm:base sm:lg'
       p='lt-sm:x-2 sm:x-3 lg:x-3 y-1'
       className='ml-5px ease-out duration-200 font-sans'
