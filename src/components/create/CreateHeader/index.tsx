@@ -28,13 +28,13 @@ const CreateHeader = ({ title }: HeaderProps) => {
       <h1
         contentEditable
         suppressContentEditableWarning={true}
-        onBlur={e => updateInfo({ title: (e.currentTarget.textContent as string).slice(1, -1) })}
+        onBlur={e => updateInfo({ title: (e.currentTarget.textContent as string) })}
         font='bold title'
         text='[18px]'
         mt='2'
         p='y-1'
       >
-        《{info.title}》
+        {info.title}
       </h1>
       <p
         contentEditable
